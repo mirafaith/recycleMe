@@ -1,0 +1,102 @@
+/* Ningshun Chen (nc2bx), Sanjana Hajela (sh9as), Everett Patterson (ecp5xf), Mira Lee (mfl2zk) */
+
+label {
+	margin-top: 0;
+	font-family: Roboto;
+	font-weight: lighter;
+	font-size: 95%;
+	margin-bottom: 0;
+}
+
+a {
+	font-family: Hind Siliguri;
+	font-weight: lighter;
+	font-size: 20px;
+	text-decoration: none;
+	color: black;
+	padding: 20px;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+h4 {
+	margin-top: 0;
+	font-family: Roboto;
+	font-weight: lighter;
+	font-size: 205%;
+	margin-bottom: 0;
+	float: center;
+}
+
+h5 {
+	margin-top: 0;
+	font-family: Roboto;
+	font-weight: lighter;
+	font-size: 150%;
+	margin-bottom: 0;
+	float: center;
+}
+
+p {
+	font-family: Roboto;
+	font-weight: lighter;
+	font-size: 75%;
+}
+
+.header {
+	background-color: white;
+	overflow: hidden;
+	width: 100%;
+	top: 0;
+	margin-bottom: 5%;
+}
+
+.nav {
+	float: right;
+	overflow: hidden;
+	margin-right: 2%;
+}
+
+/* styling the website name */
+.name {
+	font-family: Hind Siliguri;
+	font-weight: lighter;
+	font-size: 55px;
+	float: left;
+	margin-left: 1%;
+	text-decoration: underline;
+  	text-decoration-color: #bedd71;
+}
+
+.login {
+	text-align: center;
+}
+
+.search {
+	text-align: center;
+	float: center;
+	width: 60%;
+	margin: 0 auto;
+}
+
+form.example input[type=text] {
+	padding: 10px;
+	font-size: 17px;
+	border: 1px solid grey;
+	float: left;
+	width: 87%;
+	background: #f1f1f1;
+  }
+  
+
+  form.example button {
+	float: left;
+	width: 10%;
+	padding: 10px;
+	background: #2196F3;
+	color: white;
+	font-size: 17px;
+	border: 1px solid grey;
+	border-left: none; /* Prevent double borders */
+	cursor: pointer;
+  }
