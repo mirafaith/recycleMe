@@ -24,6 +24,16 @@ h2 {
 	font-family: Roboto;
 	font-weight: lighter;
 	font-size: 100%;
+	margin: 0;
+}
+
+h3 {
+	margin-top: 0;
+	font-family: Roboto;
+	font-size: 150%;
+	margin-bottom: 0;
+	float: center;
+	
 }
 
 h4 {
@@ -63,7 +73,6 @@ p {
 	margin-right: 2%;
 }
 
-/* styling the website name */
 .name {
 	font-family: Hind Siliguri;
 	font-weight: lighter;
@@ -122,3 +131,36 @@ form.lookup input {
 	  padding: 5px;
 	  width: 30%;
   }
+
+  .result {
+	border: 2px solid black;
+	padding: 5%;
+	width: 60%;
+	float: center;
+	margin: 0 auto;
+  }
+
+  .bar {
+	  padding-bottom: 15%;
+  }
+
+  .edit {
+	  float: center;
+	  width: 40%;
+	  margin: 0 auto;
+  }
+
+  input{
+  	width: 100%;
+  }
+
+  input[name="username"], input[name = "pw"]{
+	  width: 10%;
+  }
+
+  .signing {
+	float: center;
+	margin: 0 auto;
+	width: 50%;
+  }
+

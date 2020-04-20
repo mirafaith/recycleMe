@@ -23,14 +23,12 @@
     </div>
     <div style = "text-align: center;">
         <h4>my profile</h4></div><br>
-    <div class = "details">
         <h4>Jane Doe</h4>
         <h2>email@virginia.edu</h2>
         <h2>address: </h2>
         <h2>favorite locations:</h2>
         <h2>CIOs: </h2>
-        <a href="./edit.html"><button>edit info</button></a><br><br>
-    </div>
+        <a href="./edit.php"><button>edit info</button></a><br><br>
     </div>
     
 

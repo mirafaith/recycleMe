@@ -1,0 +1,46 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link href='http://fonts.googleapis.com/css?family=Hind+Siliguri' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:light" rel="stylesheet">
+    <link href='styles.css' rel='stylesheet' type='text/css' />
+    
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src ="dynamic.js"></script>
+</head>
+
+<body>
+	<div class="header">
+        <a href="./home.html" class="name">recycleMe</a>
+        </div>
+</div>
+
+    <div class="signing">
+        <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+            <h3 style = "text-align: center;">sign up for an account</h3><br>
+            <label for="username">name</label><br>
+            <input type="text" placeholder="enter name" name="name" required><br><br>
+
+            <label for="username">username</label><br>
+            <input type="text" placeholder="enter username" name="u_name" required><br><br>
+            
+		    <label for="pw">password</label><br>
+            <input type="password" placeholder="enter password" name="password" required><br><br>
+            
+            <label for="r_pw">confirm password</label><br>
+            <input type="password" placeholder="re-enter password" name="r_password" required><br><br>
+
+            <label for="email">email</label><br>
+            <input type="text" placeholder="enter email" name="email" required><br><br>
+
+            <button type = "submit">sign up</button>
+        </form>
+    </div>
+
+
+</body>
+</html>

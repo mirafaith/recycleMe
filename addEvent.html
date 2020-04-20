@@ -21,16 +21,22 @@
                 <a href="./account.html"><span style="color: #bedd71;">account</span></a>
             </div>
     </div>
-    <div style = "text-align: center;">
-        <h4>my profile</h4></div><br>
-    <div class = "details">
-        <h4>Jane Doe</h4>
-        <h2>email@virginia.edu</h2>
-        <h2>address: </h2>
-        <h2>favorite locations:</h2>
-        <h2>CIOs: </h2>
-        <a href="./edit.html"><button>edit info</button></a><br><br>
-    </div>
+    <div class = "edit">
+        <h4>add an event</h4><br><br>
+
+        <form action="/event.php">
+            <label for="name">name of event</label><br>
+            <input type="text" id="name" name="name" placeholder="jane doe.."><br><br>
+            <label for="email">date</label><br>
+            <input type="text" id="date" name="date" placeholder="11/25/2020.."><br><br>
+            <label for="email">location</label><br>
+            <input type="text" id="location" name="location" placeholder="new cabell hall.."><br><br>
+            <label for="email">cio in charge</label><br>
+            <input type="text" id="cio" name="cio" placeholder="veggies of virginia.."><br>
+            </select><br>
+          
+            <input type="submit" value="submit" style = "width: 25%; float: center;">
+          </form>
     </div>
     
 
