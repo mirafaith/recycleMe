@@ -19,13 +19,19 @@ a {
 	padding-bottom: 0;
 }
 
+
+h2 {
+	font-family: Roboto;
+	font-weight: lighter;
+	font-size: 100%;
+}
+
 h4 {
-	margin-top: 0;
 	font-family: Roboto;
 	font-weight: lighter;
 	font-size: 205%;
-	margin-bottom: 0;
-	float: center;
+	margin: 0;
+	display: inline-block;
 }
 
 h5 {
@@ -79,24 +85,40 @@ p {
 	margin: 0 auto;
 }
 
-form.example input[type=text] {
-	padding: 10px;
-	font-size: 17px;
-	border: 1px solid grey;
+form.lookup input {
+	padding: 12px;
+	font-size: 15px;
+	border: 1px;
 	float: left;
-	width: 87%;
-	background: #f1f1f1;
+	width: 85%;
+	background: #eeededc2;
   }
   
 
-  form.example button {
+  form.lookup button {
+	padding: 12px;
 	float: left;
 	width: 10%;
-	padding: 10px;
-	background: #2196F3;
+	background: rgb(75, 171, 250);
 	color: white;
-	font-size: 17px;
-	border: 1px solid grey;
-	border-left: none; /* Prevent double borders */
-	cursor: pointer;
+	font-size: 15px;
+	border: 1px;
+	border-left: none;
+  }
+
+  .details {
+	  border: 3px solid grey;
+	  border-radius: 25px;
+	  width: 30%;
+	  margin: 0 auto;
+	  text-align: center;
+	  padding: 5%;
+  }
+
+  .event {
+	  margin: 0 auto;
+	  margin-bottom: 5%;
+	  border: 1px solid;
+	  padding: 5px;
+	  width: 30%;
   }

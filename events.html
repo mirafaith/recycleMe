@@ -4,7 +4,6 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>recycleMe</title>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
 	<link href='http://fonts.googleapis.com/css?family=Hind+Siliguri' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:light" rel="stylesheet">
 	<link href='styles.css' rel='stylesheet' type='text/css' />
@@ -12,16 +11,27 @@
 	<script src ="dynamic.js"></script>
 </head>
 
-<body>
+<body style = "text-align: center;">
 	<div class="header">
 		<a href="./home.html" class="name">recycleMe</a>
 		<div class = "nav">
 			<br><br><br>
 			<a href="./search.html">search</a>
 			<a href="./events.html"><span style="color: #bedd71;">events</span></a>
+			<a href="./account.html">account</a>
 		</div>
 </div>
-
+<h4>Upcoming Events</h4><button onclick="addEvent(this.form)" style = "margin-left: 2%;">add an event</button><br><br><br>
+<div class = "event">
+	<h5 style = "text-decoration: underline;">Going Green with CIO</h5>
+	<h2>Date: 3/19/20<br>
+	Location: New Cabell Hall</h2>
+</div>
+<div class = "event">
+	<h5 style = "text-decoration: underline;">Recycle-a-thon with CIO</h5>
+	<h2>Date: 5/19/20<br>
+	Location: Newcomb Ballroom</h2>
+</div>
 <br>
 </body>
 </html>
