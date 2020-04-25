@@ -1,6 +1,12 @@
+<?php
+    require('connect.php');
+?>
+
 <!DOCTYPE html>
 <meta name="author" content="Ningshun Chen (nc2bx), Sanjana Hajela (sh9as), Everett Patterson (ecp5xf), Mira Lee (mfl2zk)">
+
 <html>
+
 <head>
 	<title>recycleMe</title>
 	<meta charset="UTF-8" />
@@ -12,26 +18,36 @@
 </head>
 
 <body>
-        <div class="header">
-            <a href="./home.html" class="name">recycleMe</a>
-            <div class = "nav">
-                <br><br><br>
-                <a href="./search.html">search</a>
-                <a href="./events.html">events</a>
-                <a href="./account.html"><span style="color: #bedd71;">account</span></a>
-            </div>
+    <div class="header">
+        <a href="./home.html" class="name">recycleMe</a>
+        <div class = "nav">
+            <br><br><br>
+            <a href="./search.html">search</a>
+            <a href="./events.html">events</a>
+            <a href="./account.html"><span style="color: #bedd71;">account</span></a>
+        </div>
     </div>
-    <div style = "text-align: center;">
-        <h4>my profile</h4></div><br>
-        <h4>Jane Doe</h4>
-        <h2>email@virginia.edu</h2>
-        <h2>address: </h2>
-        <h2>favorite locations:</h2>
-        <h2>CIOs: </h2>
-        <a href="./edit.php"><button>edit info</button></a><br><br>
-    </div>
-    
 
-</div>
+    <div class="edit">
+        <h4>edit my profile</h4><br><br>
+        <form action=".\edit.php" method="post">
+            <label for="name">name</label><br>
+            <input type="text" id="name" name="name" placeholder="jane doe.."><br><br>
+
+            <label for="email">email</label><br>
+            <input type="text" id="address" name="address" placeholder="display current address.."><br><br>
+
+            <label for="email">favorite locations</label><br>
+            <input type="text" id="faves" name="faves" placeholder="favorite locations.."><br><br>
+
+            <label for="email">cios</label><br>
+            <input type="text" id="cio" name="cio" placeholder="cio.."><br>
+
+            </select><br>
+          
+            <input type="submit" value="submit" style = "width: 25%; float: center;">
+        </form>
+    </div>
 </body>
+
 </html>

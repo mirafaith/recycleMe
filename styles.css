@@ -101,10 +101,10 @@ form.lookup input {
 	float: left;
 	width: 85%;
 	background: #eeededc2;
-  }
+}
   
 
-  form.lookup button {
+form.lookup button {
 	padding: 12px;
 	float: left;
 	width: 10%;
@@ -113,54 +113,53 @@ form.lookup input {
 	font-size: 15px;
 	border: 1px;
 	border-left: none;
-  }
+}
 
-  .details {
-	  border: 3px solid grey;
-	  border-radius: 25px;
-	  width: 30%;
-	  margin: 0 auto;
-	  text-align: center;
-	  padding: 5%;
-  }
+.details {
+	border: 3px solid grey;
+	border-radius: 25px;
+	width: 30%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 5%;
+}
 
-  .event {
-	  margin: 0 auto;
-	  margin-bottom: 5%;
-	  border: 1px solid;
-	  padding: 5px;
-	  width: 30%;
-  }
+.event {
+	margin: 0 auto;
+	margin-bottom: 5%;
+	border: 1px solid;
+	padding: 5px;
+	width: 30%;
+}
 
-  .result {
+.result {
 	border: 2px solid black;
 	padding: 5%;
 	width: 60%;
 	float: center;
 	margin: 0 auto;
-  }
+}
 
-  .bar {
-	  padding-bottom: 15%;
-  }
+.bar {
+	padding-bottom: 15%;
+}
 
-  .edit {
-	  float: center;
-	  width: 40%;
-	  margin: 0 auto;
-  }
+.edit {
+	float: center;
+	width: 40%;
+	margin: 0 auto;
+}
 
-  input{
-  	width: 100%;
-  }
+input{
+	width: 100%;
+}
 
-  input[name="username"], input[name = "pw"]{
-	  width: 10%;
-  }
+input[name="username"], input[name = "pw"]{
+	width: 10%;
+}
 
-  .signing {
+.signing {
 	float: center;
 	margin: 0 auto;
 	width: 50%;
-  }
-
+}
