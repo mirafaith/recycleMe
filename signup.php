@@ -25,8 +25,11 @@
         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
             <h3>Enter a username and password to sign up</h3>
             
-            <label for="email">email</label>
-            <input type="text" placeholder="enter email" name="email" required><br>
+            <label for ="first"> first name</label>
+            <input type="text" placeholder= "enter first name" name= "first" required><br>
+             <label for ="last"> last name</label>
+            <input type="text" placeholder= "enter last name" name= "last" required><br>
+
 
             <label for="username">username</label>
             <input type="text" placeholder="enter username" name="username" required><br>
@@ -34,8 +37,8 @@
 		    <label for="pw">password</label>
             <input type="password" placeholder="enter password" name="pw" required><br>
             
-            <label for="r_pw">confirm password</label>
-            <input type="password" placeholder="re-enter password" name="r_pw" required><br>
+            <label for="r_password">confirm password</label>
+            <input type="password" placeholder="re-enter password" name="r_password" required><br>
 
             <button type = "submit">sign up</button>
         </form>
@@ -64,17 +67,18 @@
     function createTable() {
         require("connect.php");
 
-        $query = "CREATE TABLE [IF NOT EXISTS] MyUsers (
+        $query = "CREATE TABLE [IF NOT EXISTS] users (
+            first VARCHAR(50) NOT NULL,
+            last VARCHAR(50) NOT NULL.
             username VARCHAR(50) NOT NULL,
-            email VARCHAR(50) NOT NULL,
-            pw VARCHAR(50) NOT NULL
+            password VARCHAR(50) NOT NULL
             )";
     }
 
-    function checkUserExists($username, $email) {
+    function checkUserExists($username) {
         require("connect.php");
 
-        $query = "SELECT * FROM MyUsers";
+        $query = "SELECT * FROM users";
         $statement = $db->prepare($query); 
         $statement->execute();
 
@@ -86,52 +90,52 @@
         {	
             if($user["username"] == $username)
                 return true;
-            if($user["email"] == $email)
-                return true;
+            
         }
         return false;
     }
 
-    function createNewUser($username, $email, $pw) {
+    function createNewUser($first, $last, $username, $password) {
         require("connect.php");
 
-        $query = "INSERT INTO MyUsers (username, email, pw) VALUES (:username, :email, :pw)";
+        $query = "INSERT INTO users (first, last, username, password) VALUES (:first, :last, :username, :password)";
         $statement = $db->prepare($query);
+        $statement->bindValue(':first', $first);
+        $statement->bindValue(':last', $last);
         $statement->bindValue(':username', $username);
-        $statement->bindValue(':email', $email);
-        $statement->bindValue(':pw', $pw);
+        $statement->bindValue(':password', $password);
         $statement->execute();
         $statement->closeCursor();
     }
 
 
-    $email = $username = $pw = $r_pw = NULL;
+    $first = $last = $username = $password = $r_password= NULL;
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $email = $_POST['email'];
+        $first = $_POST['first'];
+        $last = $_POST['last'];
         $username = $_POST['username'];
-        $pw = $_POST['pw'];
-        $r_pw = $_POST['r_pw'];
+        $pw = $_POST['password'];
+        $r_pw = $_POST['r_password'];
 
         // createTable();
 
         // form validation
-        if (checkUserExists($username, $email))
-            echo "<label>Username and/or email already taken. Please try again!</label>";
-        else if ($pw != $r_pw)
+        if (checkUserExists($username)
+            echo "<label>Username already taken. Please try again!</label>";
+        else if ($password != $r_password)
             echo "<label>Passwords don't match. Please try again!</label>";
-        else if(!(checkEntered($username) && checkEntered($pw)))
+        else if(!(checkEntered($username) && checkEntered($password)))
             echo "<label>Username and password must be alphanumerical and be 4-50 characters long. Please try again!</label>";
-        else if(!preg_match('/\b[\w.-]+@[\w.-]+\.[A-Za-z]{2,6}\b/', $email))
-            echo "<label>The email address you entered is invalid. Please try again!<label>";
+       
         else {
         //    createNewUser($username, $email, $pw);
             
             echo "<label>Thank you for signing up, $username!</label><br /><br />";
-            echo "<label>The email associated with your accound is \"$email\"</label><br /><br />";
+           
             echo "<label>Your password is \"$pw\"</label><br/ ><br >";
 
-            $value = array($email, $pw);
+            $value = array($password);
             $_SESSION[$username] = $value;
 
             setcookie("user", $username, time()+24*60*60, "/");
