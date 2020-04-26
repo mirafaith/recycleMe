@@ -7,12 +7,25 @@ function checkUserExists($username) {
     $statement->execute();
     $users = $statement->fetchAll();
     $statement->closeCursor();
+
     foreach ($users as $user) {	
         if ($user["username"] == $username) {
             return 'error: username already exists!';
         }
     }
     return '';
+}
+
+function checkCIOExists($CIOId) {
+    global $db;
+    $query = "SELECT * FROM CIO WHERE CIOId=:CIOId";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':CIOId', $CIOId);
+    $statement->execute();
+    $statement->closeCursor();
+
+    $CIO = $statement->fetch();
+    return $CIO['CIOId'] == $CIOId;   
 }
 
 function addCIO($name, $email, $current_user) {
@@ -61,6 +74,7 @@ function verifyUser($username, $password) {
     $statement->execute();
     $users = $statement->fetchAll();
     $statement->closeCursor();
+    
     foreach ($users as $user) {	
         if ($user['username'] == $username && $user['password'] == $password)
             return true;

@@ -5,6 +5,9 @@
     if (isset($_SESSION['user'])) {
         $current_user = $_SESSION['user'];
     }
+    else {
+        header("Location: home.php");
+    }
     
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $name = $_POST['name'];
@@ -43,10 +46,13 @@
 
     <div class="edit">
         <h4>add a CIO</h4><br><br>
+
         <?php echo (!empty($sucess)) ? "<a>$sucess</a><br>" : ''; ?><br>
+
         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
             <label for="name">name of CIO</label><br>
-            <input type="text" id="name" name="name" placeholder="greens2grounds.." required><br>
+            <input type="text" id="name" name="name" placeholder="greens2grounds.." required><br><br>
+
             <label for="email">CIO email</label><br>
             <input type="text" id="email" name="email" placeholder="contact email for CIO.." required><br><br>
 
