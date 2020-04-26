@@ -31,6 +31,7 @@
 			<a href="./search.html">search</a>
 			<a href="./events.php"><span style="color: #bedd71;">events</span></a>
 			<a href="./account.php">account</a>
+			<a href="./logout.php"><button>log out</button></a><br><br>
 		</div>
 	</div>
 
