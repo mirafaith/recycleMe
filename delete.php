@@ -8,9 +8,30 @@
     if (isset($_SESSION['user'])) {
         $current_user = $_SESSION['user'];
     }
+
+    global $db;
+
+    $query_1 = "SELECT * FROM user WHERE username = '$current_user'";
+    $statement_1 = $db->prepare($query_1);
+    $statement_1->execute();
+    $current_info = $statement_1->fetch();
+    $statement_1->closeCursor();
+    
+    $query_2 = "SELECT * FROM has NATRUAL JOIN CIO WHERE username = '$current_user'";
+    $statement_2 = $db->prepare($query_2);
+    $statement_2->execute();
+    $current_CIOs = $statement_2->fetchAll();
+    $statement_2->closeCursor();
+
+    $current_first = $current_info['first'];
+    $current_last = $current_info['last'];
+
+  
     
    $sql= "DELETE FROM users WHERE username = " . $username;
    $query = 'DELETE FROM users WHERE username = '.$username;
+   deleteUser($current_user);
+
       echo '<script>alert("Query: '.$query.'");</script>';
    session_start();
     unset($_SESSION['user']);

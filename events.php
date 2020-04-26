@@ -34,7 +34,9 @@
 		</div>
 	</div>
 
+
 	<h4>upcoming events</h4><br><br>
+
 	<?php
 		$username = 'root';
 		$password = 'RecycleMe?1234';
@@ -57,6 +59,7 @@
    // }
 //    echo "<p>You are connected to the database</p>";
 
+
 	    require('connect.php');
 	    session_start();
 
@@ -77,6 +80,7 @@
 	   $sql = "SELECT * FROM greenEvent";
 	   foreach ($db->query($sql) as $row) {
 
+
 	   	echo"<div class = 'event'>
 		   <h5 style = 'text-decoration: underline;'>".$row['title']. "</h5><h2>date: ".$row['date']."<br>location: ".$row['location']."</h2></div>";
 	   	// echo "<tr><td>".$row['title']. ' ' .$row['location']."</td>";
@@ -94,6 +98,7 @@
 // 	<h2>date: 5/19/20<br>
 // 	location: newcomb ballroom</h2>
 // </div><br> -->
+
 		}
 	   //$record= mysqli_query($conn, $sql);
 	   //$result= $conn->query($sql);
@@ -110,7 +115,6 @@
 	
 	<a href = "./addEvent.php"><button>add an event</button></a><br><br><br>
 	
-
 
 </body>
 </html>
