@@ -52,6 +52,17 @@ function createNewUser($username, $first, $last, $password) {
     $statement->execute();
     $statement->closeCursor();
 }
+function createEvent($title, $date, $location){
+    global $db;
+    $query = "INSERT INTO greenEvent (title, date, location) VALUES (:title, :date, :location)";
+        $statement = $db->prepare($query);
+        $statement->bindValue(':title', $title);
+        $statement->bindValue(':date', $date);
+        $statement->bindValue(':location', $location);
+       
+        $statement->execute();
+        $statement->closeCursor();
+}
 
 function updateUser($current_user, $username, $password, $first, $last) {
     global $db;

@@ -1,20 +1,18 @@
 <?php
     require('connect.php');
+    require('functions.php');
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $title = $_POST['title'];
         $date = $_POST['date'];
         $location = $_POST['location'];
-        $CIOId = $_POST['CIOId'];
+        //$CIOId = $_POST['CIOId'];
 
-        global $db;
-        $query = "INSERT INTO greenEvent (title, date, location, CIOId) VALUES (:title, :date, :location, :CIOId)";
-        $statement = $db->prepare($query);
-        $statement->bindValue(':title', $title);
-        $statement->bindValue(':date', $date);
-        $statement->bindValue(':location', $location);
-        $statement->bindValue(':CIOId', $CIOId);
-        $statement->execute();
-        $statement->closeCursor();
+       createEvent($title, $date, $location);
+            
+            # start a session for the new user
+            session_start();
+            $_SESSION['user'] = $username;
+            header('Location: ./events.php');
     }
 ?>
 
