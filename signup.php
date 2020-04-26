@@ -56,10 +56,8 @@
 
         if (empty($password_err) && empty($password_err) && empty($password_err)) {
             createNewUser($first, $last, $username, $password);
-
-            echo "<label>thank you for signing up, $username!</label><br><br>";
-            echo "<label>your password is \"$password\"</label><br><br>";
-            // echo "<button onclick=window.open('reviews.html')>let's go!</button><br>";
+            setcookie('user', $username, time()+3600);
+            header('Location: ./welcome.php');
         }
     }
 ?>
