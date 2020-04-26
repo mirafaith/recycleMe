@@ -5,6 +5,9 @@
 	{
 	   $current_user = $_SESSION['user'];
 	}
+	else {
+        header("Location: home.php");
+    }
 	session_destroy();
 ?>
 

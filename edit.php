@@ -8,6 +8,9 @@
     if (isset($_SESSION['user'])) {
         $current_user = $_SESSION['user'];
     }
+    else {
+        header("Location: home.php");
+    }
     
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $first = $_POST['first'];

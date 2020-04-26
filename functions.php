@@ -52,14 +52,14 @@ function createNewUser($username, $first, $last, $password) {
     $statement->execute();
     $statement->closeCursor();
 }
-function createEvent($title, $date, $location){
+function createEvent($title, $date, $location, $CIOId){
     global $db;
-    $query = "INSERT INTO greenEvent (title, date, location) VALUES (:title, :date, :location)";
+    $query = "INSERT INTO greenEvent (title, date, location, CIOId) VALUES (:title, :date, :location, :CIOId)";
         $statement = $db->prepare($query);
         $statement->bindValue(':title', $title);
         $statement->bindValue(':date', $date);
         $statement->bindValue(':location', $location);
-       
+        $statement->bindValue(':CIOId', $CIOId);
         $statement->execute();
         $statement->closeCursor();
 }

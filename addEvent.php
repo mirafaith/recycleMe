@@ -1,19 +1,20 @@
 <?php
     require('connect.php');
     require('functions.php');
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $title = $_POST['title'];
-        $date = $_POST['date'];
-        $location = $_POST['location'];
-        //$CIOId = $_POST['CIOId'];
+    session_start();
 
-       createEvent($title, $date, $location);
-            
-            # start a session for the new user
-            session_start();
-            $_SESSION['user'] = $username;
-            header('Location: ./events.php');
+    if (!isset($_SESSION['user'])) {
+        header("Location: home.php");
     }
+    else {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $title = $_POST['title'];
+            $date = $_POST['date'];
+            $location = $_POST['location'];
+            $CIOId = $_POST['CIOId'];
+            createEvent($title, $date, $location, $CIOId);
+        }
+    }   
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +59,7 @@
             <label for="CIOId">cio in charge</label><br>
             <input type="text" id="CIOId" name="CIOId" placeholder="2.." required><br><br>
 
-            <input type="submit" value="submit" style = "width: 25%; float: center;">
+            <input type="submit" value="add" style = "width: 25%; float: center;">
         </form>
     </div>
 </body>

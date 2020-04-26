@@ -6,6 +6,7 @@ label {
 	font-weight: lighter;
 	font-size: 95%;
 	margin-bottom: 0;
+	display: inline-block;
 }
 
 a {
@@ -99,6 +100,15 @@ p {
 	float: center;
 	width: 60%;
 	margin: 0 auto;
+}
+
+.table {
+	-webkit-column-count: 3; /* Chrome, Safari, Opera */
+	-moz-column-count: 3; /* Firefox */
+	column-count: 3;
+	-webkit-column-gap: 5000px; /* Chrome, Safari, Opera */
+	-moz-column-gap: 5000px; /* Firefox */
+	column-gap: 5000px;
 }
 
 form.lookup input {

@@ -1,9 +1,13 @@
 <?php
 	require('connect.php');
 	require('functions.php');
+	session_start();
+	
+	if (isset($_SESSION['user'])) {
+        header("Location: .\search.html");
+	}
 
 	$error = "";
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -46,10 +50,10 @@
 
 			<?php echo "<er>$error</er>" ?><br><br>
 
-			<label for='username'>username</label>
-			<input type='text' size='20' placeholder='enter username' name='username' required><br>
+			<label for='username' style=width:70px>username</label>
+			<input type='text' placeholder='enter username' name='username' required><br>
 			
-			<label for='password'>password</label>
+			<label for='password' style=width:70px>password</label>
 			<input type='password' size='20' placeholder = 'enter password' name='password' required><br><br>
 
 			<button type='submit'>log in</button></a><br><br>
