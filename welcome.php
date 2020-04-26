@@ -1,9 +1,11 @@
 <?php
+	session_start();
 	$current_user = '';
-	if (isset($_COOKIE['user']))    // checks for the presence of individual field 
+	if (isset($_SESSION['user']))
 	{
-	   $myuser = $_COOKIE['user'];  // access the $_COOKIE array with a specified key              
+	   $current_user = $_SESSION['user'];
 	}
+	session_destroy();
 ?>
 
 <!DOCTYPE html>
@@ -27,12 +29,8 @@
 			<a href='./home.php' class='name'>recycleMe</a>
 		</div><br>
 		
-		<form action='<?php $_SERVER['PHP_SELF'] ?>' method='POST'>
-			<?php echo "<h4>welcome to recycleMe, <i>$current_user['user']</i></h4><br>"; ?>
-
-			<button type='submit'>log in</button></a><br><br>
-			<a href='./signup.php'><span style='font-size: 14px; font-style: italic; color: #59821f'>or sign up</span></a><br><br>
-		</form>
+		<?php echo "<h4>welcome, <i>$current_user!</i></h4><br>"; ?>
+		<a><span style='font-size: 14px; font-style: italic; color: #59821f'>click on our name on top right to sign in.</span></a>
 	</div>
 </body>
 </html>

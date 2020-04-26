@@ -1,27 +1,16 @@
 <?php
-    require('connect.php');
-	
-	$error = "";
+	require('connect.php');
+	require('functions.php');
 
-	function checkUserExists($username, $password) {
-        global $db;
-        $query = 'SELECT * FROM user';
-        $statement = $db->prepare($query);
-        $statement->execute();
-        $users = $statement->fetchAll();
-        $statement->closeCursor();
-        foreach ($users as $user) {	
-            if ($user['username'] == $username && $user['password'] == $password)
-                return true;
-		}
-        return false;
-    }
+	$error = "";
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        if (checkUserExists($username, $password)) {
+        if (verifyUser($username, $password)) {
+			session_start();
+			$_SESSION['user'] = $username;
 			header('Location: ./search.html');
 		}
 		else {

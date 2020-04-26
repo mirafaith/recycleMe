@@ -39,7 +39,7 @@
             <br><br><br>
             <a href="./search.html">search</a>
             <a href="./events.html">events</a>
-            <a href="./account.html"><span style="color: #bedd71;">account</span></a>
+            <a href="./account.php"><span style="color: #bedd71;">account</span></a>
         </div>
     </div>
 
