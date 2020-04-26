@@ -7,6 +7,11 @@
     if (isset($_SESSION['user'])) {
         $current_user = $_SESSION['user'];
     }
+    else{
+        echo("you need to login first");
+        header("Location: home.php");
+        
+    }
     
     global $db;
 
@@ -68,6 +73,8 @@
         <h2>CIOs: </h2>
 
         <a href="./edit.php"><button>edit info</button></a><br><br>
+        <a href="./logout.php"><button>log out</button></a><br><br>
+        <a href = "./delete.php"><button> delete account</button></a><br><br>
     </div>
 </body>
 
