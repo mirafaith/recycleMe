@@ -42,23 +42,70 @@
                 if(isset($_POST['search'])) {
                 $searchq = $_POST['search'];
 
-                $query = $db->prepare( "SELECT * FROM center WHERE name LIKE '$searchq%' OR address LIKE '$searchq%' ") or die("could not search!");
-                $query->execute();
-                $count = $query->rowCount();
-                if($count == 0){
-                    echo "<h4> no search results found! </h6>";
+                $centers_query = $db->prepare( "SELECT * FROM center WHERE name LIKE '$searchq%' OR address LIKE '$searchq%' ") or die("could not search!");
+
+                $accepts_query = $db->prepare( "SELECT center.name AS c_name, accepts.name AS i_name FROM center JOIN accepts ON center.centerId = accepts.centerId
+                WHERE accepts.name LIKE '$searchq%' ") or die("could not search!");
+
+                $composts_query = $db->prepare( "SELECT center.name AS c_name, composts.name AS i_name FROM center JOIN composts ON center.centerId = composts.centerId
+                WHERE composts.name LIKE '$searchq%' ") or die("could not search!");
+
+                $recycles_query = $db->prepare( "SELECT center.name AS c_name, recycles.name AS i_name FROM center JOIN recycles ON center.centerId = recycles.centerId
+                WHERE recycles.name LIKE '$searchq%' ") or die("could not search!");
+
+
+                $centers_query->execute();
+                $accepts_query->execute();
+                $composts_query->execute();
+                $recycles_query->execute();
+
+                $centers_count = $centers_query->rowCount();
+                $accepts_count = $accepts_query->rowCount();
+                $composts_count = $composts_query->rowCount();
+                $recycles_count = $recycles_query->rowCount();
+
+                $total_count = $centers_count + $accepts_count + $composts_count + $recycles_count;
+
+                if($total_count== 0 or$searchq == ''){
+                    echo "<h4> No search results found! </h4>";
                 }
                 else{
-                    while($row =  $query->fetch()) {?>
-                        <div class = "result">
-                            <?php
-                                echo "<h4> <span style='color: rgb(75, 171, 250)' >" . $row['name']. "</span> is located at... </h4>";
-                                echo "<h3>" .$row['address']. "</h3>";
-                                echo "<h2>Hours: " .$row['hours']. "</h2>";
-                            ?>
-                         </div>
-                    <?php } ?>
-                <?php } ?>
+                    if($centers_count > 0){
+                        while($row =  $centers_query->fetch()) {
+                            echo "<div class = 'result'>";
+                            echo "<h4> <span style='color: rgb(75, 171, 250)' >" . $row['name']. "</span> is located at... </h4>";
+                            echo "<h3>" .$row['address']. "</h3>";
+                            echo "<h2>Hours: " .$row['hours']. "</h2>";
+                            echo "</div>";
+                        }
+                    }
+                    if($accepts_count > 0 ){
+                        while($row =  $accepts_query->fetch()){
+                            echo "<div class = 'result'>";
+                            echo "<h4> <span style='color: rgb(75, 171, 250)' >" . $row['i_name']. "(s) </span> are accepted by: </h4>";
+                            echo "<h4>" .$row['c_name']. "</h4>";
+                            echo "</div>";
+                        }
+                    }
+                    if($composts_count > 0 ){
+                        while($row =  $composts_query->fetch()){
+                            echo "<div class = 'result'>";
+                            echo "<h4> <span style='color: rgb(75, 171, 250)' >" . $row['i_name']. "(s) </span> are composted at: </h4>";
+                            echo "<h4>" .$row['c_name']. "</h4>";
+                            echo "</div>";
+                        }
+                    }
+                    if($recycles_count > 0 ){
+                        while($row =  $recycles_query->fetch()){
+                            echo "<div class = 'result'>";
+                            echo "<h4> <span style='color: rgb(75, 171, 250)' >" . $row['i_name']. "(s) </span> are recycled at: </h4>";
+                            echo "<h4>" .$row['c_name']. "</h4>";
+                            echo "</div>";
+                        }
+                    }
+                ?>
+
+            <?php } ?>
             <?php } ?>
 	</div>
 	</body>
