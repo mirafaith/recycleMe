@@ -34,7 +34,7 @@
 		</div>
 	</div>
 
-	<h4>upcoming events</h4><br>
+	<h4>upcoming events</h4><br><br>
 	<?php
 		$username = 'root';
 		$password = 'RecycleMe?1234';
@@ -55,7 +55,7 @@
    // if($conn->connect_error){
    // 	die("Connection failed: " . $conn->connect_error);
    // }
-   echo "<p>You are connected to the database</p>";
+//    echo "<p>You are connected to the database</p>";
 
 	    require('connect.php');
 	    session_start();
@@ -76,11 +76,24 @@
 
 	   $sql = "SELECT * FROM greenEvent";
 	   foreach ($db->query($sql) as $row) {
-	   		   echo "<td>".$row['first_name']. ' ' .$row['last_name']."</td>";
 
-	   	echo"<tr>";
-	   	echo "<tr><td>".$row['title']. ' ' .$row['location']."</td>";
-    	
+	   	echo"<div class = 'event'>
+		   <h5 style = 'text-decoration: underline;'>".$row['title']. "</h5><h2>date: ".$row['date']."<br>location: ".$row['location']."</h2></div>";
+	   	// echo "<tr><td>".$row['title']. ' ' .$row['location']."</td>";
+		
+		   
+		   	
+// 	<div class = "event">
+// 	<h5 style = "text-decoration: underline;">going green with CIO</h5>
+// 	<h2>date: 3/19/20<br>
+// 	location: new cabell hall</h2>
+// </div>
+
+// <div class = "event">
+// 	<h5 style = "text-decoration: underline;">recycle-a-thon with CIO</h5>
+// 	<h2>date: 5/19/20<br>
+// 	location: newcomb ballroom</h2>
+// </div><br> -->
 		}
 	   //$record= mysqli_query($conn, $sql);
 	   //$result= $conn->query($sql);
@@ -98,17 +111,6 @@
 	<a href = "./addEvent.php"><button>add an event</button></a><br><br><br>
 	
 
-	
-	<!-- <div class = "event">
-		<h5 style = "text-decoration: underline;">going green with CIO</h5>
-		<h2>date: 3/19/20<br>
-		location: new cabell hall</h2>
-	</div>
 
-	<div class = "event">
-		<h5 style = "text-decoration: underline;">recycle-a-thon with CIO</h5>
-		<h2>date: 5/19/20<br>
-		location: newcomb ballroom</h2>
-	</div><br> -->
 </body>
 </html>
