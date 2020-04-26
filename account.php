@@ -11,7 +11,6 @@
     if (!isset($_SESSION['user'])) {
         echo("you need to login first");
         header("Location: home.php");
-
     }
     
     global $db;
@@ -76,7 +75,7 @@
 
         <a href="./edit.php"><button>edit info</button></a><br><br>
 
-        <a href = ".delete.php"><button> delete account</button></a><br><br>
+        <a href = "./delete.php"><button> delete account</button></a><br><br>
 
     </div>
 </body>

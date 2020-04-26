@@ -24,8 +24,6 @@
 
     $current_first = $current_info['first'];
     $current_last = $current_info['last'];
-
-  
     
    $sql= "DELETE FROM users WHERE username = " . $username;
    $query = 'DELETE FROM users WHERE username = '.$username;

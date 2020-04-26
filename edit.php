@@ -26,7 +26,6 @@
             $sucess = "successfully updated profile!";
             $_SESSION['user'] = $username;
         }
-        
     }
 
 ?>
