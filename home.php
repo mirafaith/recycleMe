@@ -4,7 +4,7 @@
 	session_start();
 	
 	if (isset($_SESSION['user'])) {
-        header("Location: .\search.html");
+        header("Location: .\search.php");
 	}
 
 	$error = "";
@@ -15,7 +15,7 @@
         if (verifyUser($username, $password)) {
 			session_start();
 			$_SESSION['user'] = $username;
-			header('Location: ./search.html');
+			header('Location: ./search.php');
 		}
 		else {
 			$error = "error: username or password not found!";

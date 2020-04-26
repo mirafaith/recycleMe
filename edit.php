@@ -53,7 +53,7 @@
         <a href="./home.php" class="name">recycleMe</a>
         <div class = "nav">
             <br><br><br>
-            <a href="./search.html">search</a>
+            <a href="./search.php">search</a>
             <a href="./events.php">events</a>
             <a href="./account.php"><span style="color: #bedd71;">account</span></a>
             <a href="./logout.php"><button>log out</button></a><br><br>
@@ -66,7 +66,7 @@
         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
             <label for="username">username</label><br>
             <input type="text" id="username" name="u_name" placeholder="update username.." required><br>
-            <?php echo (!empty($username_err)) ? "<er>$username_err</er><br>" : ''; ?><br>   
+            <?php echo (!empty($username_err)) ? "<er>$username_err</er><br>" : ''; ?><br>
 
             <label for="first">first name</label><br>
             <input type="text" id="first" name="first" placeholder="update first name.." required><br><br>
@@ -76,7 +76,7 @@
 
             <label for="CIOs">CIOs</label><br>
             <input type="text" id="CIOs" name="CIOs" placeholder="update CIOs.."><br><br>
-          
+
             <label for="password">current password</label><br>
             <input type="text" id="password" name="pw" placeholder="verify current password.." required><br>
             <?php echo (!empty($password_err)) ? "<er>$password_err</er><br>" : ''; ?><br>
@@ -87,4 +87,4 @@
     </div>
 </body>
 
-</html>
+</html>>

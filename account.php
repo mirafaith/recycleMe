@@ -52,7 +52,7 @@
         <a href="./home.php" class="name">recycleMe</a>
         <div class = "nav">
             <br><br><br>
-            <a href="./search.html">search</a>
+            <a href="./search.php">search</a>
             <a href="./events.php">events</a>
             <a href="./account.php"><span style="color: #bedd71;">account</span></a>
             <a href="./logout.php"><button>log out</button></a><br><br>
