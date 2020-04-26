@@ -30,7 +30,7 @@
 		</div><br>
 		
 		<?php echo "<h4>welcome, <i>$current_user!</i></h4><br>"; ?>
-		<a><span style='font-size: 14px; font-style: italic; color: #59821f'>click on our name on top left to sign in!</span></a>
+		<a><span style='font-size: 14px; font-style: italic; color: #59821f'>click on our name on the top left to sign in!</span></a>
 	</div>
 </body>
 </html>
