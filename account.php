@@ -7,10 +7,9 @@
     if (isset($_SESSION['user'])) {
         $current_user = $_SESSION['user'];
     }
-    else{
+    if (!isset($_SESSION['user'])) {
         echo("you need to login first");
         header("Location: home.php");
-        
     }
     
     global $db;
