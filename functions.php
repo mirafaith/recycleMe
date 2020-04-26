@@ -15,6 +15,45 @@ function checkUserExists($username) {
     return '';
 }
 
+function addCIO($name, $email, $current_user) {
+    global $db;
+    $query = "SELECT * FROM CIO";
+    $f_statement = $db->prepare($query);
+    $f_statement->execute();
+    $CIOs = $f_statement->fetchAll();
+    $f_statement->closeCursor();
+    $check = false;
+    foreach ($CIOs as $CIO) {	
+        if ($CIO["name"] == $name) {
+            $query = "INSERT INTO has(CIOId, username) VALUES (:CIOId, :current_user)";
+            $statement = $db->prepare($query);
+            $statement->bindValue(':CIOId', $CIO["CIOId"]);
+            $statement->bindValue(':current_user', $current_user);
+            $statement->execute();
+            $statement->closeCursor();
+            $check = true;
+        }
+    }
+    if ($check == true) {
+        $query2 = "INSERT INTO CIO (email, name) VALUES (:email, :name)";
+        $statement2 = $db->prepare($query2);
+        $statement2->bindValue(':email', $email);
+        $statement2->bindValue(':name', $name);
+        $statement2->execute();
+        $statement2->closeCursor();
+        $find = "SELECT CIOId FROM CIO WHERE name = :name";
+        $query3 = "INSERT INTO has(CIOId, username) VALUES (:find, :current_user)";
+        $statement3 = $db->prepare($query3);
+        $statement3->bindValue(':find', $find);
+        $statement3->bindValue(':current_user', $current_user);
+        $statement3->execute();
+        $statement3->closeCursor();
+    }
+    return '';    
+}
+
+
+
 function verifyUser($username, $password) {
     global $db;
     $query = 'SELECT * FROM user';
@@ -52,6 +91,7 @@ function createNewUser($username, $first, $last, $password) {
     $statement->execute();
     $statement->closeCursor();
 }
+
 
 function updateUser($current_user, $username, $password, $first, $last) {
     global $db;

@@ -72,8 +72,8 @@
         <h2>favorite locations:</h2>
         <h2>CIOs: </h2>
 
-        <a href="./edit.php"><button>edit info</button></a><br><br>
-        <a href = ".delete.php"><button> delete account</button></a><br><br>
+        <a href="./edit.php"><button>edit info</button></a>
+        <a href = "./delete.php"><button> delete account</button></a><a href = "./addCIO.php"><button>add a CIO</button></a><br><br>
     </div>
 </body>
 

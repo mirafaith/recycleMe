@@ -72,9 +72,6 @@
             <label for="last">last name</label><br>
             <input type="text" id="last" name="last" placeholder="update last name.." required><br><br>
 
-            <label for="CIOs">CIOs</label><br>
-            <input type="text" id="CIOs" name="CIOs" placeholder="update CIOs.."><br><br>
-          
             <label for="password">current password</label><br>
             <input type="text" id="password" name="pw" placeholder="verify current password.." required><br>
             <?php echo (!empty($password_err)) ? "<er>$password_err</er><br>" : ''; ?><br>
