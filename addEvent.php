@@ -32,11 +32,11 @@
 
 <body>
     <div class="header">
-        <a href="./home.html" class="name">recycleMe</a>
+        <a href="./home.php" class="name">recycleMe</a>
         <div class = "nav">
             <br><br><br>
             <a href="./search.html">search</a>
-            <a href="./events.html"><span style="color: #bedd71;">events</span></a>
+            <a href="./events.php"><span style="color: #bedd71;">events</span></a>
             <a href="./account.php">account</a>
             <a href="./logout.php"><button>log out</button></a><br><br>
         </div>
