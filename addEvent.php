@@ -42,14 +42,21 @@
     </div>
     <?php
         require('connect.php');
-        if (isset($_POST[‘submit’])) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $title = $_POST['title'];
             $date = $_POST['date'];
             $location = $_POST['location'];
             $CIOId = $_POST['CIOId'];
-            $sql = "DECLARE @id int";
-            $sql = "SET @id = (SELECT COUNT(*) FROM greenEvent) + 1";
-            $sql = "INSERT INTO greenEvent VALUES (@id, $title, $date, $location, $CIOId)";
+
+            global $db;
+            $query = "INSERT INTO greenEvent VALUES (:title, :date, :location, :CIOId)";
+            $statement = $db->prepare($query);
+            $statement->bindValue(':title', $title);
+            $statement->bindValue(':date', $date);
+            $statement->bindValue(':location', $location);
+            $statement->bindValue(':CIOId', $CIOId);
+            $statement->execute();
+            $statement->closeCursor();
         }
 
 ?>
