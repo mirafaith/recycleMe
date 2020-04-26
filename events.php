@@ -1,3 +1,29 @@
+<?php
+require('connect.php');
+
+	global $db;
+
+
+
+	
+$result = "SELECT * FROM greenEvent";
+if(mysqli_num_rows($result) > 0 ){
+while($row = mysql_fetch_array($result))
+
+  {
+
+  echo $row['date'] . " " . $row['date']. $row['location']. $row['title'];
+
+  echo "<br />";
+
+  }
+}
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <meta name="author" content="Ningshun Chen (nc2bx), Sanjana Hajela (sh9as), Everett Patterson (ecp5xf), Mira Lee (mfl2zk)">
 <html>

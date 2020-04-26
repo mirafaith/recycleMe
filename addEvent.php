@@ -49,7 +49,7 @@
             $CIOId = $_POST['CIOId'];
 
             global $db;
-            $query = "INSERT INTO greenEvent VALUES (:title, :date, :location, :CIOId)";
+            $query = "INSERT INTO greenEvent(title, date, location, CIOId) VALUES (:title, :date, :location, :CIOId)";
             $statement = $db->prepare($query);
             $statement->bindValue(':title', $title);
             $statement->bindValue(':date', $date);
