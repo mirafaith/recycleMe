@@ -1,19 +1,13 @@
 <?php
     require('connect.php');
+    require('functions.php');
     session_start();
-
-    $current_user = $current_first = $current_last = '';
-    $current_CIO = '';
+    
+    $username_err = $password_err = $sucess ='';
+    $current_user = '';
     if (isset($_SESSION['user'])) {
         $current_user = $_SESSION['user'];
     }
-
-    if (!isset($_SESSION['user'])) {
-        echo("you need to login first");
-        header("Location: home.php");
-
-    }
-    
     global $db;
 
     $query_1 = "SELECT * FROM user WHERE username = '$current_user'";
@@ -30,9 +24,17 @@
 
     $current_first = $current_info['first'];
     $current_last = $current_info['last'];
-    foreach ($current_CIOs as $CIO_name) {	
-        $current_CIO = $current_CIO . ', ' . $CIO_name;
-    }
+
+  
+    
+   $sql= "DELETE FROM users WHERE username = " . $username;
+   $query = 'DELETE FROM users WHERE username = '.$username;
+   deleteUser($current_user);
+      echo '<script>alert("Query: '.$query.'");</script>';
+   session_start();
+    unset($_SESSION['user']);
+    header("Location: home.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -50,35 +52,6 @@
 	<script src ="dynamic.js"></script>
 </head>
 
-<body>
-    <div class="header">
-        <a href="./home.php" class="name">recycleMe</a>
-        <div class = "nav">
-            <br><br><br>
-            <a href="./search.html">search</a>
-            <a href="./events.html">events</a>
-            <a href="./account.php"><span style="color: #bedd71;">account</span></a>
-            <a href="./logout.php"><button>log out</button></a><br><br>
-        </div>
-    </div>
 
-    <div style="text-align: center;">
-        <h4>my profile</h4>
-    </div>
-    
-    <br>
-    <div class="details">
-        <?php echo "<h4>$current_user</h4>" ?>
-        <?php echo "<h2>first name: $current_first</h2>" ?>
-        <?php echo "<h2>last name: $current_last</h2>" ?>
-        <h2>favorite locations:</h2>
-        <h2>CIOs: </h2>
-
-        <a href="./edit.php"><button>edit info</button></a><br><br>
-
-        <a href = ".delete.php"><button> delete account</button></a><br><br>
-
-    </div>
-</body>
 
 </html>
