@@ -7,6 +7,7 @@
     if (isset($_SESSION['user'])) {
         $current_user = $_SESSION['user'];
     }
+      
 
     if (!isset($_SESSION['user'])) {
         echo("you need to login first");

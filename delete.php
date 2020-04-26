@@ -8,6 +8,7 @@
     if (isset($_SESSION['user'])) {
         $current_user = $_SESSION['user'];
     }
+
     global $db;
 
     $query_1 = "SELECT * FROM user WHERE username = '$current_user'";
@@ -28,6 +29,7 @@
    $sql= "DELETE FROM users WHERE username = " . $username;
    $query = 'DELETE FROM users WHERE username = '.$username;
    deleteUser($current_user);
+
       echo '<script>alert("Query: '.$query.'");</script>';
    session_start();
     unset($_SESSION['user']);
