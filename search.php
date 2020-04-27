@@ -19,12 +19,12 @@
 
 <body>
 	<div class="header">
-		<a href="./home.html" class="name">recycleMe</a>
+		<a href="./home.php" class="name">recycleMe</a>
 		<div class = "nav">
 			<br><br><br>
-			<a href="./search.html"><span style="color: #bedd71;">search</span></a>
-			<a href="./events.html">events</a>
-			<a href="./account.html">account</a>
+			<a href="./search.php"><span style="color: #bedd71;">search</span></a>
+			<a href="./events.php">events</a>
+			<a href="./account.php">account</a>
 		</div>
 	</div>
 	<br>
