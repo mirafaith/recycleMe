@@ -67,20 +67,17 @@
         <?php echo (!empty($sucess)) ? "<a>$sucess</a><br>" : ''; ?><br>
         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
             <label for="username">username</label><br>
-            <input type="text" id="username" name="u_name" placeholder="update username.." required><br>
+            <input type="text" id="username" name="u_name" placeholder="enter current or update username.." required><br>
             <?php echo (!empty($username_err)) ? "<er>$username_err</er><br>" : ''; ?><br>
 
             <label for="first">first name</label><br>
-            <input type="text" id="first" name="first" placeholder="update first name.." required><br><br>
+            <input type="text" id="first" name="first" placeholder="enter current or update first name.." required><br><br>
 
             <label for="last">last name</label><br>
-            <input type="text" id="last" name="last" placeholder="update last name.." required><br><br>
-
-            <label for="CIOs">CIOs</label><br>
-            <input type="text" id="CIOs" name="CIOs" placeholder="update CIOs.."><br><br>
+            <input type="text" id="last" name="last" placeholder="enter current or update last name.." required><br><br>
 
             <label for="password">current password</label><br>
-            <input type="text" id="password" name="pw" placeholder="verify current password.." required><br>
+            <input type="password" id="password" name="pw" placeholder="verify current password.." required><br>
             <?php echo (!empty($password_err)) ? "<er>$password_err</er><br>" : ''; ?><br>
 
             <button type="submit" style = "width: 25%; float: center;">submit</button>

@@ -25,6 +25,7 @@
 			<a href="./search.php"><span style="color: #bedd71;">search</span></a>
 			<a href="./events.php">events</a>
 			<a href="./account.php">account</a>
+            <a href="./logout.php"><button>log out</button></a><br><br>
 		</div>
 	</div>
 	<br>
