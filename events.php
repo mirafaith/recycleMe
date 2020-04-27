@@ -25,8 +25,8 @@
 		</div>
 	</div>
 
-	<h4>upcoming events</h4><br><br>
-
+	<h4>upcoming events</h4> <br>
+	<a href = "./addEvent.php"><button>add an event</button></a><br><br><br>
 	<?php
 	    require('connect.php');
 	    session_start();
@@ -47,7 +47,6 @@
 	   		echo "<div class='event'><h5 style='text-decoration: underline;'>".$row['title']. "</h5><h2>date: ".$row['date']."<br>location: ".$row['location']."</h2></div>";
 		}
 	?>
-	
-	<a href = "./addEvent.php"><button>add an event</button></a><br><br><br>
+
 </body>
 </html>

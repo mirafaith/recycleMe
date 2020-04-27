@@ -12,7 +12,6 @@
     }
     
     global $db;
-
     $query_1 = "SELECT * FROM user WHERE username = '$current_user'";
     $statement_1 = $db->prepare($query_1);
     $statement_1->execute();
@@ -27,9 +26,8 @@
 
     $current_first = $current_info['first'];
     $current_last = $current_info['last'];
-    foreach ($current_CIOs as $CIO_name) {	
-        $current_CIO = $current_CIO . ', ' . $CIO_name;
-    }
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -68,10 +66,17 @@
         <?php echo "<h4>$current_user</h4>" ?>
         <?php echo "<h2>first name: $current_first</h2>" ?>
         <?php echo "<h2>last name: $current_last</h2>" ?>
-        <h2>favorite locations:</h2>
         <h2>CIOs: </h2>
-
-        <a href="./edit.php"><button>edit info</button></a><br><br>
+        <?php   
+        $sql = "SELECT * FROM has JOIN CIO ON has.CIOId = CIO.CIOId WHERE username = '$current_user'"; 
+  
+        foreach ($db->query($sql) as $row) {
+         echo "<li>" .$row['name']. "<br>";
+       }
+   
+       ?>
+       <br>
+        <a href="./edit.php"><button>edit info</button></a><br>
         <a href = "./delete.php"><button>delete account</button></a><br><br>
 
     </div>

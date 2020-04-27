@@ -52,14 +52,18 @@ function createNewUser($username, $first, $last, $password) {
     $statement->execute();
     $statement->closeCursor();
 }
-function createEvent($title, $date, $location, $CIOId){
+
+function createEvent($title, $date, $location, $name){
     global $db;
-    $query = "INSERT INTO greenEvent (title, date, location, CIOId) VALUES (:title, :date, :location, :CIOId)";
+    // $find = "SELECT CIOId FROM CIO WHERE name = :name";
+    // $finding = $db->prepare($find);
+    // $finding->bindValue(':name', $name);
+    $query = "INSERT INTO greenEvent (title, date, location, CIOId) VALUES (:title, :date, :location, (SELECT CIOId FROM CIO WHERE name = :name))";
         $statement = $db->prepare($query);
         $statement->bindValue(':title', $title);
         $statement->bindValue(':date', $date);
         $statement->bindValue(':location', $location);
-        $statement->bindValue(':CIOId', $CIOId);
+        $statement->bindValue(':name', $name);
         $statement->execute();
         $statement->closeCursor();
 }
@@ -85,5 +89,3 @@ function deleteUser($username) {
     $statement->execute();
     $statement->closeCursor();
 }
-
-?>
